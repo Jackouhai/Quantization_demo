@@ -10,6 +10,29 @@ This repository contains:
 - **Accuracy Benchmarks**: Quality evaluation using MMLU, Hellaswag, ARC Challenge/Easy
 - **Comprehensive Analysis**: Detailed comparison reports with recommendations
 
+## Pre-quantized Models
+
+The quantized models are available on Hugging Face Hub:
+
+| Model | Hugging Face Link | Size | Calibration Samples |
+|-------|------------------|------|---------------------|
+| **GPTQ W4A16 (512 samples)** | [🤗 username/Qwen3-4B-W4A16-GPTQ-512](https://huggingface.co/username/Qwen3-4B-W4A16-GPTQ-512) | ~2.3GB | 512 |
+| **GPTQ W4A16 (215 samples)** | [🤗 username/Qwen3-4B-W4A16-GPTQ](https://huggingface.co/username/Qwen3-4B-W4A16-GPTQ) | ~2.3GB | 215 |
+| **AWQ W4A16 (512 samples)** | [🤗 username/Qwen3-4B-W4A16-AWQ-512](https://huggingface.co/username/Qwen3-4B-W4A16-AWQ-512) | ~2.3GB | 512 |
+| **AWQ W4A16 (215 samples)** | [🤗 username/Qwen3-4B-W4A16-AWQ](https://huggingface.co/username/Qwen3-4B-W4A16-AWQ) | ~2.3GB | 215 |
+
+**Quick Use**:
+```bash
+# Download and serve directly from Hugging Face
+vllm serve username/Qwen3-4B-W4A16-GPTQ-512 \
+  --served-model-name Qwen3-4B-GPTQ \
+  --gpu-memory-utilization 0.8 \
+  --max-model-len 8192 \
+  --enable-chunked-prefill \
+  --port 8000
+```
+
+
 ## Key Findings
 
 **Performance (vLLM Inference)**:
@@ -59,15 +82,28 @@ Quantization_Demo/
 
 ## Quick Start
 
-### 1. Environment Setup
+### Option A: Use Pre-quantized Models from Hugging Face
+
 ```bash
-# Install dependencies
-uv sync
-# or
-pip install -r requirements.txt
+# 1. Install dependencies
+uv sync  # or: pip install -r requirements.txt
+
+# 2. Serve directly from Hugging Face (recommended)
+vllm serve username/Qwen3-4B-W4A16-GPTQ-512 \
+  --served-model-name Qwen3-4B-GPTQ \
+  --gpu-memory-utilization 0.8 \
+  --max-model-len 8192 \
+  --enable-chunked-prefill \
+  --port 8000
 ```
 
-### 2. Serve a Quantized Model
+### Option B: Quantize Models Yourself
+
+See the [Quantization Guide](#how-to-quantize) section below for detailed instructions.
+
+### Option C: Use Locally Quantized Models
+
+If you already have quantized models in the `quantization/` directory:
 
 **GPTQ (W4A16, 512 samples)**:
 ```bash
@@ -149,6 +185,71 @@ uv run main.py
 
 **For Research/Baseline**:
 - Keep baseline model if resources allow
+
+## How to Quantize
+
+If you want to create quantized models yourself instead of using pre-quantized versions:
+
+### GPTQ Quantization
+
+```bash
+# 1. Install llm-compressor
+pip install llmcompressor
+
+# 2. Prepare calibration dataset (ShareGPT_V3)
+# Download from: https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered
+
+# 3. Run GPTQ quantization
+cd quantization/gptq
+python main.py
+```
+
+The `main.py` script will:
+- Load Qwen/Qwen3-4B from Hugging Face
+- Apply GPTQ W4A16 quantization with 512 calibration samples
+- Save to `Qwen3-4B-W4A16-GPTQSAMPLES512/`
+
+**Configuration options** in `main.py`:
+```python
+# Adjust these parameters as needed
+num_samples = 512  # or 215 for faster calibration
+scheme = "W4A16"   # 4-bit weights, 16-bit activations
+```
+
+### AWQ Quantization
+
+```bash
+# 1. Install llm-compressor
+pip install llmcompressor
+
+# 2. Run AWQ quantization
+cd quantization/awq
+python main.py
+```
+
+The `main.py` script will:
+- Load Qwen/Qwen3-4B from Hugging Face
+- Apply AWQ W4A16 quantization with 512 calibration samples
+- Save to `Qwen3-4B-W4A16-awq-SAMPLES512/`
+
+**Expected Output**:
+- Model size: ~2.3GB (down from ~8GB for BF16)
+- Quantization time: ~10-30 minutes depending on GPU
+- Output directory contains: `model.safetensors`, `config.json`, tokenizer files
+
+### Upload to Hugging Face (Optional)
+
+```bash
+# Install huggingface-hub
+pip install huggingface-hub
+
+# Login to Hugging Face
+huggingface-cli login
+
+# Upload your quantized model
+cd quantization/gptq/Qwen3-4B-W4A16-GPTQSAMPLES512
+huggingface-cli upload username/Qwen3-4B-W4A16-GPTQ-512 . --repo-type model
+```
 
 ## Documentation
 
