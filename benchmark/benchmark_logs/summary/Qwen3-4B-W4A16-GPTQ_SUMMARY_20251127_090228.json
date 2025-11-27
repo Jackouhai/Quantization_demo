@@ -1,0 +1,262 @@
+{
+  "arc_challenge": {
+    "Score (%)": 54.0,
+    "Metric": "acc_norm"
+  },
+  "arc_easy": {
+    "Score (%)": 74.0,
+    "Metric": "acc_norm"
+  },
+  "hellaswag": {
+    "Score (%)": 62.0,
+    "Metric": "acc_norm"
+  },
+  "mmlu": {
+    "Score (%)": 69.93,
+    "Metric": "acc"
+  },
+  "mmlu_humanities": {
+    "Score (%)": 70.62,
+    "Metric": "acc"
+  },
+  "mmlu_formal_logic": {
+    "Score (%)": 64.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_european_history": {
+    "Score (%)": 72.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_us_history": {
+    "Score (%)": 88.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_world_history": {
+    "Score (%)": 84.0,
+    "Metric": "acc"
+  },
+  "mmlu_international_law": {
+    "Score (%)": 82.0,
+    "Metric": "acc"
+  },
+  "mmlu_jurisprudence": {
+    "Score (%)": 80.0,
+    "Metric": "acc"
+  },
+  "mmlu_logical_fallacies": {
+    "Score (%)": 86.0,
+    "Metric": "acc"
+  },
+  "mmlu_moral_disputes": {
+    "Score (%)": 52.0,
+    "Metric": "acc"
+  },
+  "mmlu_moral_scenarios": {
+    "Score (%)": 38.0,
+    "Metric": "acc"
+  },
+  "mmlu_philosophy": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_prehistory": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_professional_law": {
+    "Score (%)": 40.0,
+    "Metric": "acc"
+  },
+  "mmlu_world_religions": {
+    "Score (%)": 80.0,
+    "Metric": "acc"
+  },
+  "mmlu_other": {
+    "Score (%)": 68.62,
+    "Metric": "acc"
+  },
+  "mmlu_business_ethics": {
+    "Score (%)": 80.0,
+    "Metric": "acc"
+  },
+  "mmlu_clinical_knowledge": {
+    "Score (%)": 68.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_medicine": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_global_facts": {
+    "Score (%)": 34.0,
+    "Metric": "acc"
+  },
+  "mmlu_human_aging": {
+    "Score (%)": 70.0,
+    "Metric": "acc"
+  },
+  "mmlu_management": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_marketing": {
+    "Score (%)": 86.0,
+    "Metric": "acc"
+  },
+  "mmlu_medical_genetics": {
+    "Score (%)": 74.0,
+    "Metric": "acc"
+  },
+  "mmlu_miscellaneous": {
+    "Score (%)": 72.0,
+    "Metric": "acc"
+  },
+  "mmlu_nutrition": {
+    "Score (%)": 78.0,
+    "Metric": "acc"
+  },
+  "mmlu_professional_accounting": {
+    "Score (%)": 46.0,
+    "Metric": "acc"
+  },
+  "mmlu_professional_medicine": {
+    "Score (%)": 74.0,
+    "Metric": "acc"
+  },
+  "mmlu_virology": {
+    "Score (%)": 58.0,
+    "Metric": "acc"
+  },
+  "mmlu_social_sciences": {
+    "Score (%)": 74.67,
+    "Metric": "acc"
+  },
+  "mmlu_econometrics": {
+    "Score (%)": 62.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_geography": {
+    "Score (%)": 82.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_government_and_politics": {
+    "Score (%)": 84.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_macroeconomics": {
+    "Score (%)": 66.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_microeconomics": {
+    "Score (%)": 70.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_psychology": {
+    "Score (%)": 90.0,
+    "Metric": "acc"
+  },
+  "mmlu_human_sexuality": {
+    "Score (%)": 78.0,
+    "Metric": "acc"
+  },
+  "mmlu_professional_psychology": {
+    "Score (%)": 70.0,
+    "Metric": "acc"
+  },
+  "mmlu_public_relations": {
+    "Score (%)": 58.0,
+    "Metric": "acc"
+  },
+  "mmlu_security_studies": {
+    "Score (%)": 66.0,
+    "Metric": "acc"
+  },
+  "mmlu_sociology": {
+    "Score (%)": 82.0,
+    "Metric": "acc"
+  },
+  "mmlu_us_foreign_policy": {
+    "Score (%)": 88.0,
+    "Metric": "acc"
+  },
+  "mmlu_stem": {
+    "Score (%)": 67.37,
+    "Metric": "acc"
+  },
+  "mmlu_abstract_algebra": {
+    "Score (%)": 56.0,
+    "Metric": "acc"
+  },
+  "mmlu_anatomy": {
+    "Score (%)": 60.0,
+    "Metric": "acc"
+  },
+  "mmlu_astronomy": {
+    "Score (%)": 92.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_biology": {
+    "Score (%)": 74.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_chemistry": {
+    "Score (%)": 44.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_computer_science": {
+    "Score (%)": 66.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_mathematics": {
+    "Score (%)": 48.0,
+    "Metric": "acc"
+  },
+  "mmlu_college_physics": {
+    "Score (%)": 52.0,
+    "Metric": "acc"
+  },
+  "mmlu_computer_security": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_conceptual_physics": {
+    "Score (%)": 86.0,
+    "Metric": "acc"
+  },
+  "mmlu_electrical_engineering": {
+    "Score (%)": 76.0,
+    "Metric": "acc"
+  },
+  "mmlu_elementary_mathematics": {
+    "Score (%)": 64.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_biology": {
+    "Score (%)": 84.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_chemistry": {
+    "Score (%)": 68.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_computer_science": {
+    "Score (%)": 90.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_mathematics": {
+    "Score (%)": 48.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_physics": {
+    "Score (%)": 70.0,
+    "Metric": "acc"
+  },
+  "mmlu_high_school_statistics": {
+    "Score (%)": 70.0,
+    "Metric": "acc"
+  },
+  "mmlu_machine_learning": {
+    "Score (%)": 56.0,
+    "Metric": "acc"
+  }
+}

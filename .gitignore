@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+ShareGPT_V3_unfiltered_cleaned_split.json
+quantization/awq/
+quantization/gptq/
+quantization/base_model/
+
+*.log
+ShareGPT_V3_unfiltered_cleaned_split.json
