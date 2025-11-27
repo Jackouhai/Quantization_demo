@@ -16,10 +16,10 @@ The quantized models are available on Hugging Face Hub:
 
 | Model | Hugging Face Link | Size | Calibration Samples |
 |-------|------------------|------|---------------------|
-| **GPTQ W4A16 (512 samples)** | [🤗 username/Qwen3-4B-W4A16-GPTQ-512](https://huggingface.co/username/Qwen3-4B-W4A16-GPTQ-512) | ~2.3GB | 512 |
-| **GPTQ W4A16 (215 samples)** | [🤗 username/Qwen3-4B-W4A16-GPTQ](https://huggingface.co/username/Qwen3-4B-W4A16-GPTQ) | ~2.3GB | 215 |
-| **AWQ W4A16 (512 samples)** | [🤗 username/Qwen3-4B-W4A16-AWQ-512](https://huggingface.co/username/Qwen3-4B-W4A16-AWQ-512) | ~2.3GB | 512 |
-| **AWQ W4A16 (215 samples)** | [🤗 username/Qwen3-4B-W4A16-AWQ](https://huggingface.co/username/Qwen3-4B-W4A16-AWQ) | ~2.3GB | 215 |
+| **GPTQ W4A16 (512 samples)** | [🤗 Jackouhai/Qwen3-4B-W4A16-GPTQ-512](https://huggingface.co/Jackouhai/Qwen3-4B-W4A16-GPTQ-512) | ~2.3GB | 512 |
+| **GPTQ W4A16 (215 samples)** | [🤗 Jackouhai/Qwen3-4B-W4A16-GPTQ](https://huggingface.co/Jackouhai/Qwen3-4B-W4A16-AWQ-215) | ~2.3GB | 215 |
+| **AWQ W4A16 (512 samples)** | [🤗 Jackouhai/Qwen3-4B-W4A16-AWQ-512](https://huggingface.co/Jackouhai/Qwen3-4B-W4A16-AWQ-512) | ~2.3GB | 512 |
+| **AWQ W4A16 (215 samples)** | [🤗 Jackouhai/Qwen3-4B-W4A16-AWQ](https://huggingface.co/Jackouhai/Qwen3-4B-W4A16-AWQ-215) | ~2.3GB | 215 |
 
 **Quick Use**:
 ```bash
