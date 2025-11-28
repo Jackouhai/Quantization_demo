@@ -10,10 +10,20 @@ wheels/
 .venv
 .env
 
+# Dataset files (large)
 ShareGPT_V3_unfiltered_cleaned_split.json
-quantization/awq/
-quantization/gptq/
-quantization/base_model/
 
+# Quantized model directories (large binary files - don't commit)
+quantization/awq/Qwen3-4B-W4A16-awq
+quantization/awq/Qwen3-4B-W4A16-awq-SAMPLES512
+quantization/gptq/Qwen3-4B-W4A16-GPTQ
+quantization/gptq/Qwen3-4B-W4A16-GPTQSAMPLES512
+quantization/base_model
+
+# Log and temporary files
 *.log
-ShareGPT_V3_unfiltered_cleaned_split.json
+quantization/awq/sparse_logs
+quantization/gptq/sparse_logs
+quantization/awq/bench.txt
+quantization/gptq/bench.txt
+quantization/awq/model_structure.txt
