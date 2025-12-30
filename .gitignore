@@ -27,3 +27,30 @@ quantization/gptq/sparse_logs
 quantization/awq/bench.txt
 quantization/gptq/bench.txt
 quantization/awq/model_structure.txt
+
+# W8A8-FP8 Demo models (large binary files - don't commit)
+quantization/W8A8-FP8 Demo/Qwen3-4B-W8A8-FP8-DYNAMIC
+quantization/W8A8-FP8 Demo/Qwen3-8B-W8A8-FP8-DYNAMIC
+
+# General model files
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.cache
+*.pkl
+
+# Output, log, benchmark, and temp files
+*.log
+*.csv
+*.json
+*.md
+*.txt
+*.ipynb
+*.yml
+*.yaml
+*.zip
+benchmark/
+log/
+output/

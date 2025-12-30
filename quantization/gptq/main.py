@@ -9,8 +9,11 @@ from llmcompressor.utils import dispatch_for_generation
 DATASET_ID = "neuralmagic/LLM_compression_calibration"
 DATASET_SPLIT = "train"
 
+# NUM_CALIBRATION_SAMPLES = 256
+# MAX_SEQUENCE_LENGTH = 2048 
+
 NUM_CALIBRATION_SAMPLES = 512
-MAX_SEQUENCE_LENGTH = 2048  # GPTQ thường dùng longer context hơn AWQ
+MAX_SEQUENCE_LENGTH = 2048
 
 print(f"Loading dataset: {DATASET_ID}")
 ds = load_dataset(DATASET_ID, split=f"{DATASET_SPLIT}[:{NUM_CALIBRATION_SAMPLES}]")
@@ -70,7 +73,6 @@ print("Recipe configured\n")
 # ============ APPLY QUANTIZATION ============
 print("="*70)
 print("Starting GPTQ quantization...")
-print("This may take 30-60 minutes depending on your GPU")
 print("="*70)
 
 oneshot(

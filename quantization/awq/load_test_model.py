@@ -1,5 +1,5 @@
 import os
-os.environ["VLLM_USE_V1"] = "1"  # Optional: Dùng V0 engine nếu V1 có issues
+os.environ["VLLM_USE_V1"] = "1"  
 
 from vllm import LLM, SamplingParams  
 
@@ -13,7 +13,7 @@ llm = LLM(
 sampling_params = SamplingParams(
     temperature=0.8,
     top_p=0.95,
-    max_tokens=100,  # ← Dùng max_tokens, KHÔNG phải max_new_tokens
+    max_tokens=100,  
 )
 
 # Test prompts

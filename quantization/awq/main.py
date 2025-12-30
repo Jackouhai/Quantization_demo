@@ -13,6 +13,9 @@ from llmcompressor.utils import dispatch_for_generation
 DATASET_ID = "neuralmagic/LLM_compression_calibration"
 DATASET_SPLIT = "train"
 
+# NUM_CALIBRATION_SAMPLES = 256
+# MAX_SEQUENCE_LENGTH = 512
+
 NUM_CALIBRATION_SAMPLES = 512
 MAX_SEQUENCE_LENGTH = 512
 
@@ -23,11 +26,13 @@ ds = ds.shuffle(seed=42)
 # ============ MODEL CONFIGURATION ============
 #MODEL INFO + LOAD MODEL
 MODEL_ID = "Qwen/Qwen3-4B"
-SAVE_DIR = MODEL_ID.split("/")[-1] + "-W4A16-awq" + "-SAMPLES" + str(NUM_CALIBRATION_SAMPLES)
+SAVE_DIR = MODEL_ID.split("/")[-1] + "-W4A16-awq" + str(NUM_CALIBRATION_SAMPLES) + "x" + str(MAX_SEQUENCE_LENGTH)
 
+max_memory_mapping = {0: "10GiB", "cpu": "32GiB"}
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_ID, dtype="auto", 
     device_map="auto", 
+    max_memory=max_memory_mapping,
     trust_remote_code="True",
     )
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
@@ -48,7 +53,7 @@ recipe = [
     AWQModifier(
         targets=["Linear"],
         ignore=["lm_head"],
-        scheme="W4A16_ASYM",
+        scheme="W4A16_ASYM", # [INT W8A8, FP W8A8, INT W4A16, INT W8A16]
     ),
 ]
 
@@ -59,6 +64,7 @@ oneshot(
     recipe=recipe,
     max_seq_length=MAX_SEQUENCE_LENGTH,
     num_calibration_samples=NUM_CALIBRATION_SAMPLES,
+    batch_size=1
 )
 
 # ============ TEST GENERATION ============
@@ -78,7 +84,7 @@ print(f"Saving model to: {SAVE_DIR}")
 model.save_pretrained(SAVE_DIR, save_compressed=True)
 tokenizer.save_pretrained(SAVE_DIR)
 
-print(f"✅ Model saved successfully to '{SAVE_DIR}'")
+print(f"Model saved successfully to '{SAVE_DIR}'")
 print("\nTo load in vLLM, use:")
 print(f'  from vllm import LLM')
 print(f'  model = LLM("{SAVE_DIR}", trust_remote_code=True)')
