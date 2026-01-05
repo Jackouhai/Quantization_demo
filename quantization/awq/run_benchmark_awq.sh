@@ -1,10 +1,12 @@
 #!/bin/bash
 set -e
 
-COMMON_ARGS="--tasks gsm8k --num_fewshot 5 --batch_size auto"
-GPU_UTIL=0.8
-MAX_LEN=4096
+COMMON_ARGS="--tasks gsm8k,humaneval,mmlu,c4 --num_fewshot 5 --batch_size auto"
+GPU_UTIL=0.5
+MAX_LEN=8192
 
+
+export HF_ALLOW_CODE_EVAL="1"
 echo "======================================================="
 echo "BẮT ĐẦU QUÁ TRÌNH BENCHMARK SO SÁNH (A/B TESTING)"
 echo "======================================================="
@@ -17,7 +19,9 @@ lm_eval \
   --model vllm \
   --model_args "pretrained=$QUANT_MODEL,dtype=auto,gpu_memory_utilization=$GPU_UTIL,max_model_len=$MAX_LEN" \
   $COMMON_ARGS \
-  --output_path ./benchmark/gsm8k/results_benchmark_qwen3-4b-awq256.json
+  --output_path ./benchmark/full/results_benchmark_qwen3-4b-awq256.json \
+  --confirm_run_unsafe_code \
+  --limit 10
 
 echo ">>> Xong phần 1. Kết quả lưu tại ./benchmark/gsm8k"
 echo "-------------------------------------------------------"
@@ -30,7 +34,9 @@ lm_eval \
   --model vllm \
   --model_args pretrained=$MODEL,dtype=auto,gpu_memory_utilization=$GPU_UTIL,max_model_len=$MAX_LEN \
   $COMMON_ARGS \
-  --output_path ./benchmark/gsm8k/results_benchmark_qwen3-4b-awq512.json
+  --confirm_run_unsafe_code \
+  --output_path ./benchmark/full/results_benchmark_qwen3-4b-awq512.json \
+  --limit 10
 
 echo "======================================================="
 echo "HOÀN TẤT! HÃY KIỂM TRA THƯ MỤC ./benchmark ĐỂ SO SÁNH"
