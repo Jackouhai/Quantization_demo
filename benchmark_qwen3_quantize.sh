@@ -21,7 +21,7 @@ lm_eval \
   $COMMON_ARGS \
   --confirm_run_unsafe_code \
   --output_path /home/bocchi/Work/Quantization_Demo/benchmark/full/BaseModel.json \
-  --limit 1000
+  --limit 100
 
 echo ">>> Xong phần 1. Kết quả lưu tại /home/bocchi/Work/Quantization_Demo/benchmark/full/BaseModel.json"
 echo "-------------------------------------------------------"
